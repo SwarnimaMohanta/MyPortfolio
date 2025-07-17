@@ -12,9 +12,9 @@ Stylish animations and hover effects
 
 Contact form (optional: integrated with email or backend)
 
-🛠️ Tech Stack:
+🛠️ Tech Stack:<br>
 HTML5
 
-CSS3 / TailwindCSS / Bootstrap
+CSS3
 
-JavaScript (vanilla or with small libraries)
+JavaScript
