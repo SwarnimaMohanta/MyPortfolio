@@ -44,3 +44,10 @@ document.querySelectorAll('button').forEach(button => {
     }
 
     loopAnimation();
+ function robotAction() {
+  const circle = document.getElementById("circle");
+  circle.classList.add("active");
+  setTimeout(() => {
+    circle.classList.remove("active");
+  }, 1000);
+}
