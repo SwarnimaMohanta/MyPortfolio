@@ -1,53 +1,65 @@
-document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', function () {
-        const target = document.querySelector(this.getAttribute('data-target'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('header nav button').forEach(button => {
+    button.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
     });
-    function downloadCV() {
-      const link = document.createElement('a');
-      link.href = 'cv.pdf'; 
-      link.download = 'My_CV.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-      const textElement = document.querySelector(".gradient-text");
+  });
 
-    const texts = ["AI/ML Developer", "Coder"];
 
-    async function typeText(text) {
-      for (let i = 0; i < text.length; i++) {
-        textElement.textContent += text[i];
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-    }
+  window.downloadCV = function() {
+    const link = document.createElement('a');
+    link.href = 'cv.pdf'; 
+    link.download = 'Swarnima_Mohanta_CV.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-    async function deleteText() {
-      while (textElement.textContent.length > 0) {
-        textElement.textContent = textElement.textContent.slice(0, -1);
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-    }
 
-    async function loopAnimation() {
-      let index = 0;
-      while (true) {
-        await typeText(texts[index]);
-        await new Promise(resolve => setTimeout(resolve, 1500)); 
-        await deleteText();
-        await new Promise(resolve => setTimeout(resolve, 500));  
-        index = (index + 1) % texts.length; 
-      }
+  const textElement = document.querySelector(".gradient-text");
+  const texts = ["AI/ML Developer", "Coder"];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100; 
+  const deletingSpeed = 70; 
+  const pauseBeforeDelete = 1500; 
+  const pauseBeforeType = 500;
+
+  function typeWriter() {
+    const currentText = texts[textIndex];
+    if (isDeleting) {
+      textElement.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      textElement.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
     }
 
-    loopAnimation();
- function robotAction() {
-  const circle = document.getElementById("circle");
-  circle.classList.add("active");
-  setTimeout(() => {
-    circle.classList.remove("active");
-  }, 1000);
-}
+    if (!isDeleting && charIndex === currentText.length) {
+      setTimeout(() => isDeleting = true, pauseBeforeDelete);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      setTimeout(() => {}, pauseBeforeType); 
+    }
+
+    const currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeWriter, currentSpeed);
+  }
+
+  typeWriter(); 
+
+  window.robotAction = function() {
+    const circle = document.getElementById("circle");
+    circle.classList.add("active");
+    setTimeout(() => {
+      circle.classList.remove("active");
+    }, 1000);
+  };
+});
