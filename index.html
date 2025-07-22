@@ -6,34 +6,36 @@
   <title>Swarnima Mohanta | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="portfolio.css">
 </head>
 <body>
-  <header>
-    <nav>
-    <button data-target="#home">Home</button>
-    <button data-target="#about">About</button>
-    <button data-target="#skills">Skills</button>
-    <button data-target="#projects">Projects</button>
-    <button data-target="#contact">Contact</button>
+   <header>
+    <nav class="navbar">
+      <div class="nav-links">
+       <button data-target="#home">Home</button>
+        <button data-target="#about">About</button>
+        <button data-target="#skills">Skills</button>
+        <button data-target="#projects">Projects</button>
+        <button data-target="#contact">Contact</button>
+      </div>
     </nav>
   </header>
 
   <section id="home">
     <div class="box">
-        <div id="intro-text">
-             <h4>Hello! I'm Swarnima Mohanta</h4>
-             <h2 class="gradient-text"><h2>
-            <p> Passionate about building intelligent systems that solve real-world problems. I love turning data into smart decisions through machine learning and deep learning technologies.</p>
-            <button class="download-btn" onclick="downloadCV()">Download CV</button>
+      <div id="intro-text">
+        <h4>Hello! I'm Swarnima Mohanta</h4>
+        <h2 class="gradient-text"></h2>
+        <p>Passionate about building intelligent systems that solve real-world problems. I love turning data into smart decisions through machine learning and deep learning technologies.</p>
+        <button class="download-btn" onclick="downloadCV()">Download CV</button>
+      </div>
+      <div class="gradient-border">
+        <div class="inner-pic">
+          <img src="MyPortfolioImg.jpg" alt="Profile Picture">
         </div>
-         <div class="gradient-border">
-  <div class="inner-pic">
-    <img src="MyPortfolioImg.jpg" alt="Profile Picture">
-  </div>
-</div>
+      </div>
     </div>
-      <div id="circle" onclick="robotAction()">
+    <div id="circle" onclick="robotAction()">
       <div class="robot">
         <div class="antenna"></div>
         <div class="head">
@@ -52,144 +54,135 @@
 
   <section id="about" class="tab-section">
     <div class="box1">
-   <div class="shadow__btn">
-    About me
-   </div>
-   <div id="box2">
-    <p>I am an AI/ML Developer passionate about building intelligent and scalable systems. I specialize in turning data into actionable insights using machine learning, deep learning, and data science. I enjoy solving real-world problems and continuously enhancing my skills through hands-on projects and collaborative learning.
-      <br><br>
-
-      With a strong foundation in Python, TensorFlow, and Scikit-learn, I develop predictive models that drive data-driven decision-making. I have experience in working with large datasets, performing feature engineering, and deploying AI models in production environments.
-      <br><br>
-
-      I am also deeply interested in natural language processing and computer vision, and I've built several projects ranging from chatbots to image classifiers. I'm committed to staying updated with the latest advancements in AI and actively engage in research, open-source contributions, and technical communities.
-     <br><br>
-      My goal is to create ethical and impactful AI solutions that can make a positive difference in the world.</p>
-  </div>
+      <div class="shadow__btn about-heading">
+        About me
+      </div>
+      <div id="box2">
+        <p>I am an AI/ML Developer passionate about building intelligent and scalable systems. I specialize in turning data into actionable insights using machine learning, deep learning, and data science. I enjoy solving real-world problems and continuously enhancing my skills through hands-on projects and collaborative learning.
+          <br><br>
+          With a strong foundation in Python, TensorFlow, and Scikit-learn, I develop predictive models that drive data-driven decision-making. I have experience in working with large datasets, performing feature engineering, and deploying AI models in production environments.
+          <br><br>
+          I am also deeply interested in natural language processing and computer vision, and I've built several projects ranging from chatbots to image classifiers. I'm committed to staying updated with the latest advancements in AI and actively engage in research, open-source contributions, and technical communities.
+          <br><br>
+          My goal is to create ethical and impactful AI solutions that can make a positive difference in the world.
+        </p>
+      </div>
     </div>
   </section>
 
   <section id="skills" class="tab-section">
-   <div class="shadow__btn1">
-    Skills
-   </div> 
-   <div class="box3">
-   <div id="box4">
-    <div class="slidecontainer">
-      <img src="python-logo.jpg" alt="profile-pic1">
-   </div> 
-   </div>
-   <div id="box5">
-    <div class="slidecontainer">
-      <img src="power-bi-logo.jpeg" alt="profile-pic1">
-</div>
-   </div>
-   <div id="box6">
-    <div class="slidecontainer">
-<img src="prophet-logo.jpg" alt="profile-pic1">
-</div>
-   </div>
-   <div id="box7">
-    <div class="slidecontainer">
-     <img src="MYSQL-logo.png" alt="profile-pic1">
-  
-</div>
-   </div>
-   <div id="box8">
-    <div class="slidecontainer">
-     <img src="pandas-logo.png" alt="profile-pic1">
-</div>
-   </div>
-   <div id="box9">
-    <div class="slidecontainer">
-   <img src="scikit-logo.png" alt="profile-pic1">
-</div>
-</div>
-   <div id="box10">
-    <div class="slidecontainer">
-      <img src="Java-Logo.jpg" alt="profile-pic1">
-</div>
-   </div>
-   <div id="box11">
-    <div class="slidecontainer">
-     <img src="html-logo-2.jpg" alt="profile-pic1">
-</div>
-   </div>
-    <div id="box11">
-      <div class="slidecontainer">
-   <img src="css-logo-2.png" alt="profile-pic1">
-</div>
+    <div class="shadow__btn1 skills-heading">
+      Skills
     </div>
-   </div>
+    <div class="box3">
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="python-logo.jpg" alt="Python Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="power-bi-logo.jpeg" alt="Power BI Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="js_logo.png" alt="Prophet Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="MYSQL-logo.png" alt="MySQL Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="pandas-logo.png" alt="Pandas Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="scikit-logo.png" alt="Scikit-learn Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="Java-Logo.jpg" alt="Java Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="html-logo-2.jpg" alt="HTML Logo">
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="slidecontainer">
+          <img src="css-logo-2.png" alt="CSS Logo">
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="projects" class="tab-section">
-    <div class="shadow__btn1">
-    Projects
-   </div>
+    <div class="shadow__btn1 projects-heading">
+      Projects
+    </div>
     <div class="box13">
-      <div id="box14">
-  <h2 class="text">🛒 Super Store Sales Dashboard</h2>
-  <h4>A dynamic dashboard that visualizes key performance metrics such as sales, profit, and customer trends.
-Helps businesses make data-driven decisions using interactive charts and filters.</h4><br>
-<p>GitHub: <a href="https://github.com/SwarnimaMohanta/FUTURE_ML_01.git" target="_blank">Project-01</a>
-</div>
+      <div class="project-card">
+        <h2 class="text">🛒 Super Store Sales Dashboard</h2>
+        <h4>A dynamic dashboard that visualizes key performance metrics such as sales, profit, and customer trends. Helps businesses make data-driven decisions using interactive charts and filters.</h4><br>
+        <p>GitHub: <a href="https://github.com/SwarnimaMohanta/FUTURE_ML_01.git" target="_blank">Project-01</a></p>
+      </div>
 
-<div id="box15">
-  <h2 class="text">🎧 Spotify Churn Prediction System</h2>
-   <h4>A machine learning-based system that predicts which users are likely to unsubscribe from Spotify.
-Uses behavioral and demographic data to improve customer retention strategies.
-</h4><br>
-<p>GitHub: <a href="https://github.com/SwarnimaMohanta/FUTURE_ML_02.git" target="_blank">Project-02</a>
-</div>
+      <div class="project-card">
+        <h2 class="text">🎧 Spotify Churn Prediction System</h2>
+        <h4>A machine learning-based system that predicts which users are likely to unsubscribe from Spotify. Uses behavioral and demographic data to improve customer retention strategies.</h4><br>
+        <p>GitHub: <a href="https://github.com/SwarnimaMohanta/FUTURE_ML_02.git" target="_blank">Project-02</a></p>
+      </div>
 
-<div id="box16">
-  <h2 class="text">💬 Chatbot for Customer Support</h2>
-   <h4>An intelligent chatbot designed to automate customer queries and improve support efficiency.
-Capable of handling FAQs, collecting feedback, and providing real-time assistance 24/7.</h4><br>
-<p>GitHub: <a href="GitHub.com/in/swarnima" target="_blank">Project-03</a>
-</div>
-
+      <div class="project-card">
+        <h2 class="text">💬 Chatbot for Customer Support</h2>
+        <h4>An intelligent chatbot designed to automate customer queries and improve support efficiency. Capable of handling FAQs, collecting feedback, and providing real-time assistance 24/7.</h4><br>
+        <p>GitHub: <a href="https://github.com/in/swarnima" target="_blank">Project-03</a></p>
+      </div>
     </div>
   </section>
 
   <section id="contact" class="tab-section">
-   <div class="shadow__btn2">
-    Get in Touch
-   </div>
-   <div class="box17">
-    <div id="box18">
-      <h2>Contact information</h2>
-      <h4>Feel free to reach out to me with any questions or ideas. I'm always open to meaningful conversations and collaborations.
-Whether you're interested in working together or seeking insights in my field, I'm happy to connect.
-I aim to respond promptly and appreciate your interest in getting in touch.</h4>
-<br>
-    <p><b>Email:</b> <span>mohantaswarnima448@gmail.com</span></p><br>
-    <p><b>Phone NO:</b><span> 9732005259</span></p><br>
-    <p><b>Others social media:</b></p><br>
-    <div id="social-container">
-    <a href="https://www.instagram.com/swarnima_15" class="glow-btn" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/swarnima-mohanta-525047303?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="glow-btn" target="_blank">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://github.com/SwarnimaMohanta" class="glow-btn" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
+    <div class="shadow__btn2 contact-heading">
+      Get in Touch
     </div>
-   </div>
-   </div>
+    <div class="box17">
+      <div id="box18">
+        <h2>Contact Information</h2>
+        <h4>Feel free to reach out to me with any questions or ideas. I'm always open to meaningful conversations and collaborations. Whether you're interested in working together or seeking insights in my field, I'm happy to connect. I aim to respond promptly and appreciate your interest in getting in touch.</h4>
+        <br>
+        <p><b>Email:</b> <span>mohantaswarnima448@gmail.com</span></p><br>
+        <p><b>Phone NO:</b><span> 9732005259</span></p><br>
+        <p><b>Other Social Media:</b></p><br>
+        <div id="social-container">
+          <a href="https://www.instagram.com/swarnima_15" class="glow-btn" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/swarnima-mohanta-525047303?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " class="glow-btn" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/SwarnimaMohanta" class="glow-btn" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Swarnima Mohanta. All Rights Reserved.</p>
     <div class="social-links">
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
+      <a href="https://github.com/SwarnimaMohanta" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/swarnima-mohanta-525047303" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/swarnima_15" target="_blank">Instagram</a>
     </div>
   </footer>
-<script src="script.js"></script>  
+  <script src="portfolio.js"></script>
 </body>
 </html>
