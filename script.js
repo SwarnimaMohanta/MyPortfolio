@@ -55,36 +55,69 @@ document.addEventListener('DOMContentLoaded', () => {
   typeWriter(); 
 
   
-let messengerReady = false;
-    let cachedButton = null;
-    let chatbotOpen = false; 
 
+
+  let messengerReady = false;
+    let cachedLauncher = null;
+    let cachedChatWindow = null;
+
+    
     window.addEventListener('dfMessengerLoaded', function () {
       const messenger = document.querySelector('df-messenger');
       setTimeout(() => {
         if (messenger && messenger.shadowRoot) {
-          cachedButton = messenger.shadowRoot.querySelector('df-messenger-button');
-          if (cachedButton) {
+          cachedLauncher = messenger.shadowRoot.querySelector('df-messenger-button');
+          cachedChatWindow = messenger.shadowRoot.querySelector('df-messenger-chat');
+
+          if (cachedLauncher && cachedChatWindow) {
             messengerReady = true;
             console.log("✅ Messenger ready.");
+
+            tryInjectCloseBtn();
           }
         }
-      }, 100);
+      }, 1200); 
     });
 
+
     function robotAction() {
-      const circle = document.getElementById("circle");
-      circle.classList.add("active");
+      if (!messengerReady || !cachedLauncher || !cachedChatWindow) {
+        console.log("⚠️ Messenger not ready.");
+        return;
+      }
 
-      setTimeout(() => {
-        circle.classList.remove("active");
-      }, 500);
-
-      if (messengerReady && cachedButton) {
-        console.log(chatbotOpen ? "🛑 Closing chatbot" : "✅ Opening chatbot");
-        cachedButton.click(); 
-        chatbotOpen = !chatbotOpen; 
+      if (cachedChatWindow.hasAttribute('opened')) {
+        const closeIcon = cachedChatWindow.shadowRoot.querySelector('.close-icon');
+        if (closeIcon) {
+          closeIcon.click();
+          console.log("🛑 Chatbot closed.");
+        }
       } else {
-        console.log("⚠️ Messenger not ready yet.");
+        cachedLauncher.click();
+        console.log("✅ Chatbot opened.");
+      }
+    }
+
+  
+    function tryInjectCloseBtn(retries = 20) {
+      const titleBar = cachedChatWindow.shadowRoot.querySelector('.header');
+
+      if (titleBar) {
+        const closeBtn = document.createElement('button');
+        closeBtn.textContent = '❌';
+        closeBtn.classList.add('custom-close-btn');
+
+        closeBtn.onclick = () => {
+          const closeIcon = cachedChatWindow.shadowRoot.querySelector('.close-icon');
+          if (closeIcon) closeIcon.click();
+        };
+
+        titleBar.appendChild(closeBtn);
+        console.log("✅ Close button injected.");
+      } else if (retries > 0) {
+        console.log("⏳ Retrying to inject close button...");
+        setTimeout(() => tryInjectCloseBtn(retries - 1), 500);
+      } else {
+        console.warn("❌ Failed to inject close button after retries.");
       }
     }
