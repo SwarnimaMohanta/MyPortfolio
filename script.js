@@ -11,15 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  window.downloadCV = function() {
+ window.downloadCV = function () {
     const link = document.createElement('a');
-    link.href = 'cv.pdf'; 
-    link.download = 'Swarnima_Mohanta_CV.pdf'; 
+    link.href = 'assets/Swarnima_Mohanta_CV.pdf';
+    link.download = 'Swarnima_Mohanta_CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
-
 
   const textElement = document.querySelector(".gradient-text");
   const texts = ["AI/ML Developer", "Coder"];
