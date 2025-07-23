@@ -202,7 +202,7 @@ section {
 }
 
 #circle.active {
-  background-color: #60eda9;
+  background-color: #0b0b0b;
   transform: scale(1.1);
 }
 
