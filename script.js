@@ -9,17 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+})
 
-
-window.downloadCV = function () {
-  const link = document.createElement('a');
-  link.href = 'https://swarnimamohanta.github.io/MyPortfolio/assets/Swarnima_Mohanta_CV.pdf';
-  link.download = 'Swarnima_Mohanta_CV.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
-
+   window.downloadCV = function () {
+    const link = document.createElement('a');
+    link.href = 'assets/Swarnima_Mohanta_CV.pdf';
+    link.download = 'Swarnima_Mohanta_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const textElement = document.querySelector(".gradient-text");
   const texts = ["AI/ML Developer", "Coder"];
@@ -55,11 +54,35 @@ window.downloadCV = function () {
 
   typeWriter(); 
 
-  window.robotAction = function() {
+  
+let messengerReady = false;
+  let cachedButton = null;
+
+  window.addEventListener('dfMessengerLoaded', function () {
+    const messenger = document.querySelector('df-messenger');
+    setTimeout(() => {
+      if (messenger && messenger.shadowRoot) {
+        cachedButton = messenger.shadowRoot.querySelector('df-messenger-button');
+        if (cachedButton) {
+          messengerReady = true;
+          console.log("✅ Messenger ready.");
+        }
+      }
+    }, 100);
+  });
+
+  function robotAction() {
     const circle = document.getElementById("circle");
     circle.classList.add("active");
+
     setTimeout(() => {
       circle.classList.remove("active");
     }, 1000);
-  };
-});
+
+    if (messengerReady && cachedButton) {
+      console.log("✅ Opening chatbot");
+      cachedButton.click();
+    } else {
+      console.log("⚠️ Messenger not ready yet.");
+    }
+  }
