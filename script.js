@@ -56,33 +56,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 let messengerReady = false;
-  let cachedButton = null;
+    let cachedButton = null;
+    let chatbotOpen = false; 
 
-  window.addEventListener('dfMessengerLoaded', function () {
-    const messenger = document.querySelector('df-messenger');
-    setTimeout(() => {
-      if (messenger && messenger.shadowRoot) {
-        cachedButton = messenger.shadowRoot.querySelector('df-messenger-button');
-        if (cachedButton) {
-          messengerReady = true;
-          console.log("✅ Messenger ready.");
+    window.addEventListener('dfMessengerLoaded', function () {
+      const messenger = document.querySelector('df-messenger');
+      setTimeout(() => {
+        if (messenger && messenger.shadowRoot) {
+          cachedButton = messenger.shadowRoot.querySelector('df-messenger-button');
+          if (cachedButton) {
+            messengerReady = true;
+            console.log("✅ Messenger ready.");
+          }
         }
+      }, 100);
+    });
+
+    function robotAction() {
+      const circle = document.getElementById("circle");
+      circle.classList.add("active");
+
+      setTimeout(() => {
+        circle.classList.remove("active");
+      }, 500);
+
+      if (messengerReady && cachedButton) {
+        console.log(chatbotOpen ? "🛑 Closing chatbot" : "✅ Opening chatbot");
+        cachedButton.click(); 
+        chatbotOpen = !chatbotOpen; 
+      } else {
+        console.log("⚠️ Messenger not ready yet.");
       }
-    }, 100);
-  });
-
-  function robotAction() {
-    const circle = document.getElementById("circle");
-    circle.classList.add("active");
-
-    setTimeout(() => {
-      circle.classList.remove("active");
-    }, 1000);
-
-    if (messengerReady && cachedButton) {
-      console.log("✅ Opening chatbot");
-      cachedButton.click();
-    } else {
-      console.log("⚠️ Messenger not ready yet.");
     }
-  }
