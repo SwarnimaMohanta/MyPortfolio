@@ -80,44 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    function robotAction() {
-      if (!messengerReady || !cachedLauncher || !cachedChatWindow) {
-        console.log("⚠️ Messenger not ready.");
-        return;
-      }
 
-      if (cachedChatWindow.hasAttribute('opened')) {
-        const closeIcon = cachedChatWindow.shadowRoot.querySelector('.close-icon');
-        if (closeIcon) {
-          closeIcon.click();
-          console.log("🛑 Chatbot closed.");
-        }
-      } else {
-        cachedLauncher.click();
-        console.log("✅ Chatbot opened.");
-      }
-    }
-
-  
-    function tryInjectCloseBtn(retries = 20) {
-      const titleBar = cachedChatWindow.shadowRoot.querySelector('.header');
-
-      if (titleBar) {
-        const closeBtn = document.createElement('button');
-        closeBtn.textContent = '❌';
-        closeBtn.classList.add('custom-close-btn');
-
-        closeBtn.onclick = () => {
-          const closeIcon = cachedChatWindow.shadowRoot.querySelector('.close-icon');
-          if (closeIcon) closeIcon.click();
-        };
-
-        titleBar.appendChild(closeBtn);
-        console.log("✅ Close button injected.");
-      } else if (retries > 0) {
-        console.log("⏳ Retrying to inject close button...");
-        setTimeout(() => tryInjectCloseBtn(retries - 1), 500);
-      } else {
-        console.warn("❌ Failed to inject close button after retries.");
-      }
-    }
