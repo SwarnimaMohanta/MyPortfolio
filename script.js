@@ -79,5 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200); 
     });
 
+    let chatbotOpen = false;
+    let cachedLauncher = null;
+    let cachedChatWindow = null;
+    let messengerReady = false;
+
+    window.addEventListener('dfMessengerLoaded', function () {
+      const messenger = document.querySelector('df-messenger');
+      if (messenger && messenger.shadowRoot) {
+        cachedLauncher = messenger.shadowRoot.querySelector('df-messenger-button');
+        cachedChatWindow = messenger.shadowRoot.querySelector('df-messenger-chat');
+        if (cachedLauncher && cachedChatWindow) {
+          messengerReady = true;
+        }
+      }
+    });
+
+    function toggleChatbot() {
+      if (!messengerReady || !cachedLauncher || !cachedChatWindow) {
+        console.log("⚠ Chatbot not ready yet.");
+        return;
+      }
+
+      if (cachedChatWindow.hasAttribute('opened')) {
+        const closeIcon = cachedChatWindow.shadowRoot.querySelector('.close-icon');
+        if (closeIcon) closeIcon.click();
+        chatbotOpen = false;
+        console.log("❌ Chatbot closed.");
+      } else {
+        cachedLauncher.click();
+        chatbotOpen = true;
+        console.log("✅ Chatbot opened.");
+      }
+    }
 
 
