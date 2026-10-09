@@ -11,79 +11,106 @@ body {
   cursor: default;
 }
 
- header {
-      background-color: #121212;
-      color: white;
-      padding: 20px 20px;
-      display: flex;
-      flex-direction: row;
-      column-gap: 10px;
-      align-items: flex-end;
-      justify-content: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
 
-    header h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
+/* =========================================================
+   HEADER / NAVBAR
+   ========================================================= */
 
-    .navbar-buttons {
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-      justify-content: flex-end;
-      position: fixed;
-    }
+header {
+  background-color: rgba(18, 18, 18, 0.70);
+  color: white;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
 
-    button {
-      min-width: 120px;
-      height: 40px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 16px;
-      border-radius: 1rem;
-      border: none;
-      position: relative;
-      background: #100720;
-      transition: 0.1s;
-      padding: 0 10px;
+header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-    }
+.navbar-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
 
-    button::after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
-      filter: blur(15px);
-      z-index: -1;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+button {
+  min-width: 120px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 1rem;
+  border: none;
+  position: relative;
+  background: #100720;
+  transition: 0.1s;
+  padding: 0 10px;
+}
 
-    button:active {
-      transform: scale(0.9) rotate(3deg);
-      background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
-      transition: 0.5s;
-    }
+button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 94, 247, 1) 17.8%,
+    rgba(2, 245, 255, 1) 100.2%
+  );
+  filter: blur(15px);
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
-    @media (min-width: 600px) {
-     header {
+button:active {
+  transform: scale(0.9) rotate(3deg);
+  background: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 94, 247, 1) 17.8%,
+    rgba(2, 245, 255, 1) 100.2%
+  );
+  transition: 0.5s;
+}
+
+
+/* =========================================================
+   DESKTOP HEADER
+   ========================================================= */
+
+@media (min-width: 600px) {
+  header {
     flex-direction: column;
-    gap: 10px;
+    row-gap: 5px;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  header h1 {
+    margin-bottom: 0;
   }
 
   .navbar-buttons {
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
   }
+}
 
-    }
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
 section {
   padding: 60px 40px;
   min-height: 100vh;
@@ -93,6 +120,11 @@ section {
   justify-content: center;
   text-align: center;
 }
+
+
+/* =========================================================
+   HOME
+   ========================================================= */
 
 #home .box {
   display: flex;
@@ -172,8 +204,8 @@ section {
   background: #0f0f0f;
   border-radius: 50%;
   overflow: hidden;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 }
 
 .inner-pic img {
@@ -183,11 +215,15 @@ section {
 }
 
 
+/* =========================================================
+   ABOUT
+   ========================================================= */
 
 #about .box1 {
   width: 100%;
   max-width: 900px;
   padding: 0 20px;
+  background: transparent;
 }
 
 #about #box2 {
@@ -198,7 +234,14 @@ section {
   border-radius: 1rem;
   margin-top: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #1a1a1a;
+
+  /* TRANSPARENT */
+  background-color: rgba(20, 20, 20, 0.22);
+
+  /* Slight glass effect */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
   text-align: left;
 }
 
@@ -210,16 +253,26 @@ section {
 #about #box2 p {
   font-weight: normal;
   font-family: 'Poppins', sans-serif;
-  color: #beb8cd;
+  color: #ffffff;
   line-height: 1.8;
+
+  /* Helps text remain readable over scenery */
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.7);
 }
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 .shadow__btn {
   padding: 15px 40px;
   font-size: 20px;
   width: 220px;
   height: 50px;
-  border:none;
+  border: none;
   color: #fff;
   border-radius: 7px;
   letter-spacing: 4px;
@@ -230,10 +283,9 @@ section {
   text-align: center;
   background: rgb(0,140,255);
   box-shadow: 0 0 25px rgb(0,140,255);
-  margin-left: 29%;
+  margin-left: 30%;
   margin-bottom: 20px;
 }
-
 
 .shadow__btn {
   background: rgb(0,140,255);
@@ -241,17 +293,19 @@ section {
 }
 
 .shadow__btn:hover {
-  box-shadow: 0 0 5px rgb(0,140,255),
-              0 0 25px rgb(0,140,255),
-              0 0 50px rgb(0,140,255),
-              0 0 100px rgb(0,140,255);
+  box-shadow:
+    0 0 5px rgb(0,140,255),
+    0 0 25px rgb(0,140,255),
+    0 0 50px rgb(0,140,255),
+    0 0 100px rgb(0,140,255);
 }
-.shadow__btn1{
+
+.shadow__btn1 {
   padding: 15px 40px;
   font-size: 20px;
   width: 220px;
   height: 50px;
-  border:none;
+  border: none;
   color: #fff;
   border-radius: 7px;
   letter-spacing: 4px;
@@ -267,7 +321,6 @@ section {
   margin-top: 40px;
   margin-left: 1%;
 }
-
 
 .shadow__btn1 {
   background: rgb(0,140,255);
@@ -275,18 +328,19 @@ section {
 }
 
 .shadow__btn1:hover {
-  box-shadow: 0 0 5px rgb(0,140,255),
-              0 0 25px rgb(0,140,255),
-              0 0 50px rgb(0,140,255),
-              0 0 100px rgb(0,140,255);
+  box-shadow:
+    0 0 5px rgb(0,140,255),
+    0 0 25px rgb(0,140,255),
+    0 0 50px rgb(0,140,255),
+    0 0 100px rgb(0,140,255);
 }
 
-.shadow__btn2{
+.shadow__btn2 {
   padding: 15px 25px;
   font-size: 20px;
   width: 250px;
   height: 50px;
-  border:none;
+  border: none;
   color: #fff;
   border-radius: 7px;
   letter-spacing: 4px;
@@ -303,18 +357,24 @@ section {
   margin-left: 1%;
 }
 
-
 .shadow__btn2 {
   background: rgb(0,140,255);
   box-shadow: 0 0 25px rgb(0,140,255);
 }
 
 .shadow__btn2:hover {
-  box-shadow: 0 0 5px rgb(0,140,255),
-              0 0 25px rgb(0,140,255),
-              0 0 50px rgb(0,140,255),
-              0 0 100px rgb(0,140,255);
+  box-shadow:
+    0 0 5px rgb(0,140,255),
+    0 0 25px rgb(0,140,255),
+    0 0 50px rgb(0,140,255),
+    0 0 100px rgb(0,140,255);
 }
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
 #skills .box3 {
   width: 100%;
   max-width: 1000px;
@@ -322,19 +382,26 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   padding: 20px 0;
+  background: transparent;
 }
 
 .skill-item {
   border: 2px solid blueviolet;
   border-radius: 20px;
-  overflow: hidden; 
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #1a1a1a;
+
+  /* TRANSPARENT */
+  background-color: rgba(20, 20, 20, 0.20);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
   height: 200px;
-  width: 100%; 
+  width: 100%;
 }
 
 .skill-item:hover {
@@ -353,36 +420,51 @@ section {
 .slidecontainer img {
   width: 100%;
   height: 100%;
-  object-fit: cover;      
-  border-radius: 20px;     
-  transition: transform 0.3s ease;
+  object-fit: cover;
+  border-radius: 20px;
+
+  /* Slight transparency so scenery can still be seen */
+  opacity: 0.72;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .skill-item:hover .slidecontainer img {
-  transform: scale(1.1);  
+  transform: scale(1.1);
+  opacity: 0.82;
 }
 
 
+/* =========================================================
+   PROJECTS
+   ========================================================= */
 
 #projects .box13 {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 25px;
   padding: 30px 0;
+  background: transparent;
 }
 
 .project-card {
   border: 4px solid;
   border-radius: 20px;
   border-image: linear-gradient(135deg, #b2a6cf, #030303) 1;
-  width: clamp(300px, 40vw, 400px);
-  height: auto;
+  width: 380px;
+  min-height: 260px;
   padding: 20px;
   text-align: center;
-  background-color: #121515;
+
+  /* TRANSPARENT */
+  background-color: rgba(18, 21, 21, 0.20);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
   box-shadow: 0 0 12px rgb(223, 52, 223);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -399,21 +481,32 @@ section {
   color: #39c6d5;
   margin-bottom: 10px;
   font-size: 1.5rem;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .project-card h4 {
-  color: #beb8cd;
+  color: #ffffff;
   margin-bottom: 15px;
   font-size: 0.95rem;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.95),
+    0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 .project-card p {
-  color: #f5f5f7;
+  color: #ffffff;
   font-size: 0.9rem;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .project-card a {
-  color: #00bcd4;
+  color: #00eaff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -422,10 +515,17 @@ section {
   color: #00e5ff;
   text-decoration: underline;
 }
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
 #contact .box17 {
   width: 100%;
   max-width: 900px;
   padding: 0 20px;
+  background: transparent;
 }
 
 #contact #box18 {
@@ -436,7 +536,13 @@ section {
   border-image: linear-gradient(135deg, #410dc4, #DC143C) 1;
   margin: 0 auto;
   padding: 25px;
-  background-color: #1a1a1a;
+
+  /* TRANSPARENT */
+  background-color: rgba(26, 26, 26, 0.22);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
   box-shadow: 0 0 15px rgba(196, 44, 196, 0.5);
   text-align: left;
 }
@@ -444,23 +550,34 @@ section {
 #contact #box18 h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #f2f2f5;
+  color: #ffffff;
   font-size: 2rem;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 #contact #box18 h4 {
-  color: #beb8cd;
+  color: #ffffff;
   margin-bottom: 20px;
   line-height: 1.8;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.95),
+    0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 #contact #box18 p {
-  color: #e7c1f7;
+  color: #f0caff;
   margin-bottom: 10px;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 #contact #box18 span {
-  color: #f2f8f9;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -476,7 +593,10 @@ section {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: #090909;
+
+  /* Slightly transparent */
+  background-color: rgba(9, 9, 9, 0.55);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -495,22 +615,41 @@ section {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 10px rgb(173, 104, 212), 0 0 20px rgb(163, 76, 240);
+    box-shadow:
+      0 0 10px rgb(173, 104, 212),
+      0 0 20px rgb(163, 76, 240);
   }
+
   50% {
-    box-shadow: 0 0 20px rgb(173, 104, 212), 0 0 40px rgb(173, 104, 212);
+    box-shadow:
+      0 0 20px rgb(173, 104, 212),
+      0 0 40px rgb(173, 104, 212);
   }
+
   100% {
-    box-shadow: 0 0 10px rgb(173, 104, 212), 0 0 20px rgb(173, 104, 212);
+    box-shadow:
+      0 0 10px rgb(173, 104, 212),
+      0 0 20px rgb(173, 104, 212);
   }
 }
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #000046;
+
+  /* Transparent footer */
+  background-color: rgba(0, 0, 70, 0.65);
+
   color: white;
   margin-top: 50px;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 footer .social-links {
@@ -529,7 +668,13 @@ footer .social-links a:hover {
   color: #a7a7ff;
 }
 
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
 @media (max-width: 1024px) {
+
   #home .box {
     flex-direction: column-reverse;
     gap: 50px;
@@ -549,19 +694,17 @@ footer .social-links a:hover {
     height: 250px;
   }
 
-
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     background-color: #121212;
-    position:fixed;
-    top: 80px; 
+    position: fixed;
+    top: 80px;
     left: 0;
     padding: 10px 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   }
-
 
   #about #box2 {
     min-height: auto;
@@ -569,7 +712,9 @@ footer .social-links a:hover {
     margin-top: 25px;
   }
 
-  .shadow_btn, .shadowbtn1, .shadow_btn2 {
+  .shadow_btn,
+  .shadowbtn1,
+  .shadow_btn2 {
     font-size: 1.1rem;
     padding: 12px 30px;
   }
@@ -620,91 +765,98 @@ footer .social-links a:hover {
 }
 
 
-  section {
-    padding: 40px 15px;
-  }
+/* =========================================================
+   GENERAL SMALL SCREEN
+   ========================================================= */
 
-  #intro-text h4 {
-    font-size: 1rem;
-  }
+section {
+  padding: 40px 15px;
+}
 
-  .gradient-text {
-    font-size: 2rem;
-  }
+#intro-text h4 {
+  font-size: 1rem;
+}
 
-  #intro-text p {
-    font-size: 1rem;
-  }
+.gradient-text {
+  font-size: 2rem;
+}
 
-  .download-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
+#intro-text p {
+  font-size: 1rem;
+}
 
-  .inner-pic {
-    width: 200px;
-    height: 200px;
-  }
+.download-btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
 
-  #about #box2 {
-    font-size: 0.9rem;
-  }
+.inner-pic {
+  width: 200px;
+  height: 200px;
+}
+
+#about #box2 {
+  font-size: 0.9rem;
+}
+
+#skills .box3 {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.skill-item {
+  height: 100px;
+}
+
+.project-card h2 {
+  font-size: 1.3rem;
+}
+
+.project-card h4 {
+  font-size: 0.85rem;
+}
+
+#contact #box18 h2 {
+  font-size: 1.5rem;
+}
+
+#contact #box18 h4 {
+  font-size: 0.9rem;
+}
+
+#contact #box18 p {
+  font-size: 0.85rem;
+}
+
+.glow-btn {
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+}
+
+footer {
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+footer .social-links a {
+  font-size: 0.9rem;
+}
 
 
-  #skills .box3 {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-  }
-
-  .skill-item {
-    height: 100px;
-  }
-
-  .project-card h2 {
-    font-size: 1.3rem;
-  }
-
-  .project-card h4 {
-    font-size: 0.85rem;
-  }
-
-  #contact #box18 h2 {
-    font-size: 1.5rem;
-  }
-
-  #contact #box18 h4 {
-    font-size: 0.9rem;
-  }
-
-  #contact #box18 p {
-    font-size: 0.85rem;
-  }
-
-  .glow-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
-  }
-
-  footer {
-    padding: 15px;
-    font-size: 0.9rem;
-  }
-
-  footer .social-links a {
-    font-size: 0.9rem;
-  }
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
+
   header {
     padding: 10px 10px;
   }
 
   .nav-links {
-    top: 60px; 
+    top: 60px;
   }
-
- 
 
   section {
     padding: 30px 10px;
@@ -736,7 +888,9 @@ footer .social-links a:hover {
     font-size: 0.85rem;
   }
 
-  .shadow_btn, .shadowbtn1, .shadow_btn2 {
+  .shadow_btn,
+  .shadowbtn1,
+  .shadow_btn2 {
     font-size: 0.9rem;
     padding: 8px 20px;
     margin: 20px auto 15px auto;
@@ -785,10 +939,310 @@ footer .social-links a:hover {
     font-size: 1.3rem;
   }
 
-  #circle {
-    right: 10px;
-    bottom: 10px;
-    height: 40px;
-    width: 40px;
+  #projects .box13 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
   }
+
+  .project-card {
+    width: clamp(300px, 40vw, 400px);
+  }
+
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+   IMPORTANT: THIS IS OUTSIDE THE 480px MEDIA QUERY
+   ========================================================= */
+
+#bg-stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #121212;
+}
+
+.bg-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.bg-img {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+
+  /* Reduced slightly so scenery remains visible */
+  --dim: 0.48;
+
+  background:
+    radial-gradient(
+      60% 50% at 12% 18%,
+      rgba(120, 60, 255, 0.28),
+      transparent 70%
+    ),
+    radial-gradient(
+      55% 45% at 88% 85%,
+      rgba(0, 229, 255, 0.18),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 6, 24, var(--dim)) 0%,
+      rgba(10, 6, 24, calc(var(--dim) - 0.1)) 50%,
+      rgba(10, 6, 24, calc(var(--dim) + 0.14)) 100%
+    );
+}
+
+
+/* =========================================================
+   YOUR BACKGROUND IMAGES
+   ========================================================= */
+
+.bg-home.bg-img {
+  background-image: url('assets/gsap1.jpg');
+}
+
+.bg-about.bg-img {
+  background-image: url('assets/gsap2.jpg');
+}
+
+.bg-skills.bg-img {
+  background-image: url('assets/gsap3.jpg');
+}
+
+.bg-projects.bg-img {
+  background-image: url('assets/gsap4.jpg');
+}
+
+.bg-contact.bg-img {
+  background-image: url('assets/gsap5.jpg');
+}
+
+
+/* =========================================================
+   CONTENT ABOVE BACKGROUND
+   ========================================================= */
+
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  background-color: rgba(0, 0, 70, 0.65);
+}
+
+
+/* =========================================================
+   SCENE PROGRESS
+   ========================================================= */
+
+#scene-progress {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 999;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #7b3cff,
+    #ff5ef7,
+    #02f5ff
+  );
+  box-shadow: 0 0 14px rgba(2, 245, 255, 0.7);
+}
+
+
+/* =========================================================
+   NAVBAR FIX
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    position: static;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-links button {
+    min-width: 76px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   TRANSPARENT CONTENT BOXES
+   IMPORTANT:
+   This section is OUTSIDE the reduced-motion media query.
+   Therefore it works for every user.
+   ========================================================= */
+
+/* About content */
+#about .box1,
+#about #box2 {
+  background-color: rgba(20, 20, 20, 0.22);
+}
+
+#about #box2 {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* Skills container */
+#skills .box3 {
+  background-color: transparent;
+}
+
+.skill-item {
+  background-color: rgba(20, 20, 20, 0.20);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* Project container */
+#projects .box13 {
+  background-color: transparent;
+}
+
+.project-card {
+  background-color: rgba(18, 21, 21, 0.20);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* Contact container */
+#contact .box17 {
+  background-color: transparent;
+}
+
+#contact #box18 {
+  background-color: rgba(26, 26, 26, 0.22);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+
+/* =========================================================
+   TEXT READABILITY
+   ========================================================= */
+
+#about #box2 p,
+.project-card h2,
+.project-card h4,
+.project-card p,
+#contact #box18 h2,
+#contact #box18 h4,
+#contact #box18 p {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   HOME CONTENT
+   ========================================================= */
+
+#home,
+#home .box,
+#intro-text {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background-color: rgba(0, 0, 70, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bg-img {
+    transition: none;
+  }
+
+}
+
+
+/* =========================================================
+   FINAL BACKGROUND VISIBILITY
+   ========================================================= */
+
+/* Keep the background scenery visible behind the content */
+#bg-stage {
+  z-index: 0;
+}
+
+.bg-scene {
+  z-index: 0;
+}
+
+section,
+footer {
+  z-index: 1;
+}
+
+/* Content stays above the background */
+#about .box1,
+#skills .box3,
+#projects .box13,
+#contact .box17,
+#about #box2,
+.skill-item,
+.project-card,
+#contact #box18 {
+  position: relative;
+  z-index: 2;
 }
