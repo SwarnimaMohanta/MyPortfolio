@@ -1,1248 +1,3069 @@
 * {
+
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
+
   font-family: 'Poppins', sans-serif;
+
 }
+
 
 body {
-  background-color: #121212;
-  color: #f5f5f7;
+
+  background-color: #141013;
+
+  color: #F7F0EC;
+
   cursor: default;
+
 }
 
 
 /* =========================================================
+
    HEADER / NAVBAR
+
    ========================================================= */
+
 
 header {
-  background-color: rgba(18, 18, 18, 0.70);
+
+  background-color: rgba(20, 16, 19, 0.78);
+
   color: white;
+
   padding: 20px 20px;
+
   display: flex;
+
   flex-direction: row;
+
   column-gap: 10px;
+
   align-items: center;
+
   position: fixed;
+
   top: 0;
+
   width: 100%;
+
   z-index: 1000;
+
   backdrop-filter: blur(5px);
+
   -webkit-backdrop-filter: blur(5px);
+
 }
+
 
 header h1 {
+
   font-size: 24px;
+
   margin-bottom: 10px;
+
 }
+
 
 .navbar-buttons {
+
   display: flex;
+
   flex-direction: row;
+
   gap: 10px;
+
   justify-content: center;
+
 }
+
 
 button {
+
   min-width: 120px;
+
   height: 40px;
+
   cursor: pointer;
+
   color: #fff;
+
   font-size: 16px;
+
   border-radius: 1rem;
+
   border: none;
+
   position: relative;
-  background: #100720;
+
+  background: #30201C;
+
   transition: 0.1s;
+
   padding: 0 10px;
+
 }
+
 
 button::after {
+
   content: '';
+
   width: 100%;
+
   height: 100%;
+
   background-image: radial-gradient(
+
     circle farthest-corner at 10% 20%,
-    rgba(255, 94, 247, 1) 17.8%,
-    rgba(2, 245, 255, 1) 100.2%
+
+    rgba(217, 107, 67, 1) 17.8%,
+
+    rgba(240, 163, 92, 1) 100.2%
+
   );
+
   filter: blur(15px);
+
   z-index: -1;
+
   position: absolute;
+
   left: 0;
+
   top: 0;
+
 }
+
 
 button:active {
+
   transform: scale(0.9) rotate(3deg);
+
   background: radial-gradient(
+
     circle farthest-corner at 10% 20%,
-    rgba(255, 94, 247, 1) 17.8%,
-    rgba(2, 245, 255, 1) 100.2%
+
+    rgba(217, 107, 67, 1) 17.8%,
+
+    rgba(240, 163, 92, 1) 100.2%
+
   );
+
   transition: 0.5s;
+
 }
 
 
 /* =========================================================
+
    DESKTOP HEADER
+
    ========================================================= */
+
 
 @media (min-width: 600px) {
+
   header {
+
     flex-direction: column;
+
     row-gap: 5px;
+
     justify-content: space-between;
+
     padding: 20px 40px;
+
   }
+
 
   header h1 {
+
     margin-bottom: 0;
+
   }
+
 
   .navbar-buttons {
+
     justify-content: flex-end;
+
   }
+
 }
 
 
 /* =========================================================
+
    SECTIONS
+
    ========================================================= */
+
 
 section {
+
   padding: 60px 40px;
+
   min-height: 100vh;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   justify-content: center;
+
   text-align: center;
+
 }
 
 
 /* =========================================================
+
    HOME
+
    ========================================================= */
+
 
 #home .box {
+
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
+
   align-items: center;
+
   gap: 80px;
+
   margin-top: 50px;
+
   width: 100%;
+
   max-width: 1200px;
+
 }
+
 
 #intro-text {
+
   width: clamp(300px, 40vw, 500px);
+
   text-align: left;
+
 }
+
 
 #intro-text h4 {
+
   font-size: 1.2rem;
+
   margin-bottom: 10px;
-  color: #f5f5f7;
+
+  color: #F7F0EC;
+
 }
+
 
 .gradient-text {
+
   font-size: 3rem;
+
   margin-bottom: 10px;
+
   font-weight: bold;
-  background: linear-gradient(135deg, #410dc4, #DC143C);
+
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+
   -webkit-background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   background-clip: text;
+
   color: transparent;
+
   white-space: nowrap;
+
   overflow: hidden;
+
 }
+
 
 #intro-text p {
+
   font-size: 1.1rem;
+
   margin-bottom: 20px;
-  color: #f5f5f7;
+
+  color: #F7F0EC;
+
 }
+
 
 .download-btn {
-  background: linear-gradient(135deg, #4B0082, #DC143C);
+
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+
   color: white;
+
   font-size: 1.1rem;
+
   padding: 12px 25px;
+
   border: none;
+
   border-radius: 8px;
+
   cursor: pointer;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background 0.3s ease;
+
+  transition: none;
+
   margin-top: 20px;
+
 }
+
 
 .download-btn:hover {
-  background: linear-gradient(135deg, #5f11a5, #e63450);
+
+  background: linear-gradient(135deg, #C85C3C, #F0A35C);
+
   transform: translateY(-3px);
+
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+
 }
+
 
 .gradient-border {
-  background: linear-gradient(135deg, #410dc4, #DC143C);
+
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+
   padding: 6px;
+
   border-radius: 50%;
+
   display: inline-block;
-  box-shadow: 0 0 12px rgb(196, 44, 196);
+
+  box-shadow: 0 0 12px rgb(217, 107, 67);
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
+
 
 .gradient-border:hover {
+
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgb(232, 83, 232);
+
+  box-shadow: 0 0 25px rgb(217, 107, 67);
+
 }
+
 
 .inner-pic {
+
   background: #0f0f0f;
+
   border-radius: 50%;
+
   overflow: hidden;
+
   width: 500px;
+
   height: 500px;
+
 }
+
 
 .inner-pic img {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
 }
 
 
 /* =========================================================
+
    ABOUT
+
    ========================================================= */
+
 
 #about .box1 {
+
   width: 100%;
+
   max-width: 900px;
+
   padding: 0 20px;
+
   background: transparent;
+
 }
+
 
 #about #box2 {
+
   min-height: 250px;
+
   width: 100%;
-  border: solid 2px #7879c8;
+
+  border: solid 2px #D96B43;
+
   padding: 20px;
+
   border-radius: 1rem;
+
   margin-top: 30px;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+
   /* TRANSPARENT */
-  background-color: rgba(20, 20, 20, 0.22);
+
+  background-color: rgba(48, 32, 28, 0.24);
+
 
   /* Slight glass effect */
+
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
 
+
   text-align: left;
+
 }
+
 
 #about #box2:hover {
+
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgb(232, 83, 232);
+
+  box-shadow: 0 8px 20px rgb(217, 107, 67);
+
 }
+
 
 #about #box2 p {
+
   font-weight: normal;
+
   font-family: 'Poppins', sans-serif;
+
   color: #ffffff;
+
   line-height: 1.8;
+
 
   /* Helps text remain readable over scenery */
+
   text-shadow:
+
     0 2px 4px rgba(0, 0, 0, 0.9),
+
     0 0 8px rgba(0, 0, 0, 0.7);
+
 }
 
 
 /* =========================================================
+
    BUTTONS
+
    ========================================================= */
 
-.shadow__btn {
-  padding: 15px 40px;
-  font-size: 20px;
-  width: 220px;
-  height: 50px;
-  border: none;
-  color: #fff;
-  border-radius: 7px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: 0.5s;
-  transition-property: box-shadow;
-  text-align: center;
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
-  margin-left: 30%;
-  margin-bottom: 20px;
-}
 
 .shadow__btn {
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
+
+  padding: 15px 40px;
+
+  font-size: 20px;
+
+  width: 220px;
+
+  height: 50px;
+
+  border: none;
+
+  color: #fff;
+
+  border-radius: 7px;
+
+  letter-spacing: 4px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  transition: 0.5s;
+
+  transition-property: box-shadow;
+
+  text-align: center;
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
+  margin-left: 30%;
+
+  margin-bottom: 20px;
+
 }
+
+
+.shadow__btn {
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
+}
+
 
 .shadow__btn:hover {
+
   box-shadow:
-    0 0 5px rgb(0,140,255),
-    0 0 25px rgb(0,140,255),
-    0 0 50px rgb(0,140,255),
-    0 0 100px rgb(0,140,255);
+
+    0 0 5px rgb(217,107,67),
+
+    0 0 25px rgb(217,107,67),
+
+    0 0 50px rgb(217,107,67),
+
+    0 0 100px rgb(217,107,67);
+
 }
 
+
 .shadow__btn1 {
+
   padding: 15px 40px;
+
   font-size: 20px;
+
   width: 220px;
+
   height: 50px;
+
   border: none;
+
   color: #fff;
+
   border-radius: 7px;
+
   letter-spacing: 4px;
+
   font-weight: 700;
+
   text-transform: uppercase;
+
   transition: 0.5s;
+
   transition-property: box-shadow;
+
   text-align: center;
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
   margin-left: 30%;
+
   margin-bottom: 20px;
+
   margin-top: 40px;
+
   margin-left: 1%;
+
 }
 
+
 .shadow__btn1 {
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
 }
+
 
 .shadow__btn1:hover {
+
   box-shadow:
-    0 0 5px rgb(0,140,255),
-    0 0 25px rgb(0,140,255),
-    0 0 50px rgb(0,140,255),
-    0 0 100px rgb(0,140,255);
+
+    0 0 5px rgb(217,107,67),
+
+    0 0 25px rgb(217,107,67),
+
+    0 0 50px rgb(217,107,67),
+
+    0 0 100px rgb(217,107,67);
+
 }
 
+
 .shadow__btn2 {
+
   padding: 15px 25px;
+
   font-size: 20px;
+
   width: 250px;
+
   height: 50px;
+
   border: none;
+
   color: #fff;
+
   border-radius: 7px;
+
   letter-spacing: 4px;
+
   font-weight: 700;
+
   text-transform: uppercase;
+
   transition: 0.5s;
+
   transition-property: box-shadow;
+
   text-align: center;
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
   margin-left: 30%;
+
   margin-bottom: 20px;
+
   margin-top: 40px;
+
   margin-left: 1%;
+
 }
 
+
 .shadow__btn2 {
-  background: rgb(0,140,255);
-  box-shadow: 0 0 25px rgb(0,140,255);
+
+  background: rgb(217,107,67);
+
+  box-shadow: 0 0 25px rgb(217,107,67);
+
 }
+
 
 .shadow__btn2:hover {
+
   box-shadow:
-    0 0 5px rgb(0,140,255),
-    0 0 25px rgb(0,140,255),
-    0 0 50px rgb(0,140,255),
-    0 0 100px rgb(0,140,255);
+
+    0 0 5px rgb(217,107,67),
+
+    0 0 25px rgb(217,107,67),
+
+    0 0 50px rgb(217,107,67),
+
+    0 0 100px rgb(217,107,67);
+
 }
 
 
 /* =========================================================
+
    SKILLS
+
    ========================================================= */
+
 
 #skills .box3 {
+
   width: 100%;
+
   max-width: 1000px;
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
   gap: 30px;
+
   padding: 20px 0;
+
   background: transparent;
+
 }
+
 
 .skill-item {
-  border: 2px solid blueviolet;
+
+  border: 2px solid #D96B43;
+
   border-radius: 20px;
+
   overflow: hidden;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+
   /* TRANSPARENT */
-  background-color: rgba(20, 20, 20, 0.20);
+
+  background-color: rgba(48, 32, 28, 0.22);
+
 
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
+
 
   height: 200px;
+
   width: 100%;
+
 }
+
 
 .skill-item:hover {
+
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 20px rgb(232, 83, 232);
+
+  box-shadow: 0 0 20px rgb(217, 107, 67);
+
 }
+
 
 .slidecontainer {
+
   width: 110%;
+
   height: 100%;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
 }
+
 
 .slidecontainer img {
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
+
   border-radius: 20px;
+
 
   /* Slight transparency so scenery can still be seen */
+
   opacity: 0.72;
 
+
   transition: transform 0.3s ease, opacity 0.3s ease;
+
 }
+
 
 .skill-item:hover .slidecontainer img {
+
   transform: scale(1.1);
+
   opacity: 0.82;
+
 }
 
 
 /* =========================================================
+
    PROJECTS
+
    ========================================================= */
+
 
 #projects .box13 {
+
   width: 100%;
+
   max-width: 1300px;
+
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
+
   gap: 25px;
+
   padding: 30px 0;
+
   background: transparent;
+
 }
+
 
 .project-card {
+
   border: 4px solid;
+
   border-radius: 20px;
+
   border-image: linear-gradient(135deg, #b2a6cf, #030303) 1;
+
   width: 380px;
+
   min-height: 260px;
+
   padding: 20px;
+
   text-align: center;
 
+
   /* TRANSPARENT */
-  background-color: rgba(18, 21, 21, 0.20);
+
+  background-color: rgba(48, 32, 28, 0.22);
+
 
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
 
-  box-shadow: 0 0 12px rgb(223, 52, 223);
+
+  box-shadow: 0 0 12px rgb(217, 107, 67);
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: space-between;
+
 }
+
 
 .project-card:hover {
+
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 0 25px rgb(232, 83, 232);
+
+  box-shadow: 0 0 25px rgb(217, 107, 67);
+
 }
+
 
 .project-card h2 {
-  color: #39c6d5;
+
+  color: #F0A35C;
+
   margin-bottom: 10px;
+
   font-size: 1.5rem;
 
+
   text-shadow:
+
     0 2px 5px rgba(0, 0, 0, 0.9),
+
     0 0 8px rgba(0, 0, 0, 0.7);
+
 }
+
 
 .project-card h4 {
+
   color: #ffffff;
+
   margin-bottom: 15px;
+
   font-size: 0.95rem;
 
+
   text-shadow:
+
     0 2px 5px rgba(0, 0, 0, 0.95),
+
     0 0 8px rgba(0, 0, 0, 0.8);
+
 }
+
 
 .project-card p {
+
   color: #ffffff;
+
   font-size: 0.9rem;
 
+
   text-shadow:
+
     0 2px 4px rgba(0, 0, 0, 0.9);
+
 }
+
 
 .project-card a {
-  color: #00eaff;
+
+  color: #F0A35C;
+
   text-decoration: none;
+
   transition: color 0.3s ease;
+
 }
+
 
 .project-card a:hover {
-  color: #00e5ff;
+
+  color: #D96B43;
+
   text-decoration: underline;
+
 }
 
 
 /* =========================================================
+
    CONTACT
+
    ========================================================= */
+
 
 #contact .box17 {
+
   width: 100%;
+
   max-width: 900px;
+
   padding: 0 20px;
+
   background: transparent;
+
 }
+
 
 #contact #box18 {
+
   min-height: 400px;
+
   width: 100%;
+
   border: 4px solid;
+
   border-radius: 20px;
-  border-image: linear-gradient(135deg, #410dc4, #DC143C) 1;
+
+  border-image: linear-gradient(135deg, #D96B43, #F0A35C) 1;
+
   margin: 0 auto;
+
   padding: 25px;
 
+
   /* TRANSPARENT */
-  background-color: rgba(26, 26, 26, 0.22);
+
+  background-color: rgba(48, 32, 28, 0.24);
+
 
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
 
+
   box-shadow: 0 0 15px rgba(196, 44, 196, 0.5);
+
   text-align: left;
+
 }
+
 
 #contact #box18 h2 {
+
   text-align: center;
+
   margin-bottom: 20px;
+
   color: #ffffff;
+
   font-size: 2rem;
 
+
   text-shadow:
+
     0 2px 5px rgba(0, 0, 0, 0.9),
+
     0 0 10px rgba(0, 0, 0, 0.7);
+
 }
+
 
 #contact #box18 h4 {
+
   color: #ffffff;
+
   margin-bottom: 20px;
+
   line-height: 1.8;
 
+
   text-shadow:
+
     0 2px 5px rgba(0, 0, 0, 0.95),
+
     0 0 8px rgba(0, 0, 0, 0.8);
+
 }
+
 
 #contact #box18 p {
-  color: #f0caff;
+
+  color: #F0A35C;
+
   margin-bottom: 10px;
 
+
   text-shadow:
+
     0 2px 4px rgba(0, 0, 0, 0.9);
+
 }
+
 
 #contact #box18 span {
+
   color: #ffffff;
+
   font-weight: bold;
+
 }
+
 
 #social-container {
+
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
+
   gap: 20px;
+
   margin-top: 30px;
+
 }
+
 
 .glow-btn {
+
   width: 55px;
+
   height: 55px;
+
   border-radius: 50%;
 
+
   /* Slightly transparent */
-  background-color: rgba(9, 9, 9, 0.55);
+
+  background-color: rgba(20, 16, 19, 0.72);
+
 
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   text-decoration: none;
-  color: rgb(245, 227, 227);
+
+  color: rgb(247, 240, 236);
+
   font-size: 1.8rem;
-  box-shadow: 0 0 15px rgb(173, 104, 212);
+
+  box-shadow: 0 0 15px rgb(217, 107, 67);
+
   animation: pulse 2s infinite ease-in-out;
+
   transition: transform 0.2s ease;
+
 }
+
 
 .glow-btn:hover {
+
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 0 25px rgb(173, 104, 212);
+
+  box-shadow: 0 0 25px rgb(217, 107, 67);
+
 }
+
 
 @keyframes pulse {
+
   0% {
+
     box-shadow:
-      0 0 10px rgb(173, 104, 212),
-      0 0 20px rgb(163, 76, 240);
+
+      0 0 10px rgb(217, 107, 67),
+
+      0 0 20px rgb(240, 163, 92);
+
   }
+
 
   50% {
+
     box-shadow:
-      0 0 20px rgb(173, 104, 212),
-      0 0 40px rgb(173, 104, 212);
+
+      0 0 20px rgb(217, 107, 67),
+
+      0 0 40px rgb(217, 107, 67);
+
   }
+
 
   100% {
+
     box-shadow:
-      0 0 10px rgb(173, 104, 212),
-      0 0 20px rgb(173, 104, 212);
+
+      0 0 10px rgb(217, 107, 67),
+
+      0 0 20px rgb(217, 107, 67);
+
   }
+
 }
 
 
 /* =========================================================
+
    FOOTER
+
    ========================================================= */
+
 
 footer {
+
   text-align: center;
+
   padding: 20px;
 
+
   /* Transparent footer */
-  background-color: rgba(0, 0, 70, 0.65);
+
+  background-color: rgba(48, 32, 28, 0.78);
+
 
   color: white;
+
   margin-top: 50px;
 
+
   backdrop-filter: blur(5px);
+
   -webkit-backdrop-filter: blur(5px);
+
 }
+
 
 footer .social-links {
+
   margin-top: 10px;
+
 }
+
 
 footer .social-links a {
+
   margin: 0 10px;
+
   text-decoration: none;
+
   color: white;
+
   font-size: 1rem;
+
   transition: color 0.3s ease;
+
 }
 
+
 footer .social-links a:hover {
-  color: #a7a7ff;
+
+  color: #F0A35C;
+
 }
 
 
 /* =========================================================
+
    TABLET
+
    ========================================================= */
+
 
 @media (max-width: 1024px) {
 
+
   #home .box {
+
     flex-direction: column-reverse;
+
     gap: 50px;
+
   }
+
 
   #intro-text {
+
     text-align: center;
+
     width: 90%;
+
   }
+
 
   .gradient-text {
+
     font-size: 2.5rem;
+
   }
+
 
   .inner-pic {
+
     width: 250px;
+
     height: 250px;
+
   }
+
 
   .nav-links {
+
     display: none;
+
     flex-direction: column;
+
     width: 100%;
-    background-color: #121212;
+
+    background-color: #141013;
+
     position: fixed;
+
     top: 80px;
+
     left: 0;
+
     padding: 10px 0;
+
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
   }
+
 
   #about #box2 {
+
     min-height: auto;
+
     padding: 15px;
+
     margin-top: 25px;
+
   }
+
 
   .shadow_btn,
+
   .shadowbtn1,
+
   .shadow_btn2 {
+
     font-size: 1.1rem;
+
     padding: 12px 30px;
+
   }
+
 
   #skills .box3 {
+
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
     gap: 20px;
+
   }
+
 
   .skill-item {
+
     height: 120px;
+
   }
+
 
   #projects .box13 {
+
     flex-direction: column;
+
     align-items: center;
+
     gap: 25px;
+
   }
+
 
   .project-card {
+
     width: 90%;
+
     max-width: 450px;
+
     height: auto;
+
   }
+
 
   #contact #box18 {
+
     padding: 20px;
+
   }
+
 
   #contact #box18 h2 {
+
     font-size: 1.8rem;
+
   }
+
 
   #contact #box18 h4 {
+
     font-size: 0.9rem;
+
   }
+
 
   #contact #box18 p {
+
     font-size: 0.85rem;
+
   }
+
 
   #circle {
+
     right: 15px;
+
     bottom: 15px;
+
     height: 50px;
+
     width: 50px;
+
   }
+
 }
 
 
 /* =========================================================
+
    GENERAL SMALL SCREEN
+
    ========================================================= */
+
 
 section {
+
   padding: 40px 15px;
+
 }
+
 
 #intro-text h4 {
+
   font-size: 1rem;
+
 }
+
 
 .gradient-text {
+
   font-size: 2rem;
+
 }
+
 
 #intro-text p {
+
   font-size: 1rem;
+
 }
+
 
 .download-btn {
+
   font-size: 1rem;
+
   padding: 10px 20px;
+
 }
+
 
 .inner-pic {
+
   width: 200px;
+
   height: 200px;
+
 }
+
 
 #about #box2 {
+
   font-size: 0.9rem;
+
 }
+
 
 #skills .box3 {
+
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
   gap: 15px;
+
 }
+
 
 .skill-item {
+
   height: 100px;
+
 }
+
 
 .project-card h2 {
+
   font-size: 1.3rem;
+
 }
+
 
 .project-card h4 {
+
   font-size: 0.85rem;
+
 }
+
 
 #contact #box18 h2 {
+
   font-size: 1.5rem;
+
 }
+
 
 #contact #box18 h4 {
+
   font-size: 0.9rem;
+
 }
+
 
 #contact #box18 p {
+
   font-size: 0.85rem;
+
 }
+
 
 .glow-btn {
+
   width: 45px;
+
   height: 45px;
+
   font-size: 1.5rem;
+
 }
+
 
 footer {
+
   padding: 15px;
+
   font-size: 0.9rem;
+
 }
 
+
 footer .social-links a {
+
   font-size: 0.9rem;
+
 }
 
 
 /* =========================================================
+
    MOBILE
+
    ========================================================= */
+
 
 @media (max-width: 480px) {
 
+
   header {
+
     padding: 10px 10px;
+
   }
+
 
   .nav-links {
+
     top: 60px;
+
   }
+
 
   section {
+
     padding: 30px 10px;
+
   }
+
 
   .gradient-text {
+
     font-size: 1.8rem;
+
   }
+
 
   #intro-text p {
+
     font-size: 0.9rem;
+
   }
+
 
   .download-btn {
+
     font-size: 0.9rem;
+
     padding: 8px 15px;
+
   }
+
 
   .inner-pic {
+
     width: 150px;
+
     height: 150px;
+
   }
+
 
   #about #box2 {
+
     padding: 10px;
+
   }
+
 
   #about #box2 p {
+
     font-size: 0.85rem;
+
   }
+
 
   .shadow_btn,
+
   .shadowbtn1,
+
   .shadow_btn2 {
+
     font-size: 0.9rem;
+
     padding: 8px 20px;
+
     margin: 20px auto 15px auto;
+
   }
+
 
   #skills .box3 {
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 10px;
+
   }
+
 
   .skill-item {
+
     height: 80px;
+
   }
+
 
   .project-card h2 {
+
     font-size: 1.1rem;
+
   }
+
 
   .project-card h4 {
+
     font-size: 0.8rem;
+
   }
+
 
   .project-card p {
+
     font-size: 0.8rem;
+
   }
+
 
   #contact #box18 {
+
     padding: 15px;
+
   }
+
 
   #contact #box18 h2 {
+
     font-size: 1.3rem;
+
   }
+
 
   #contact #box18 h4 {
+
     font-size: 0.85rem;
+
   }
+
 
   #contact #box18 p {
+
     font-size: 0.8rem;
+
   }
+
 
   .glow-btn {
+
     width: 40px;
+
     height: 40px;
+
     font-size: 1.3rem;
+
   }
+
 
   #projects .box13 {
+
     display: flex;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     gap: 30px;
+
   }
+
 
   .project-card {
+
     width: clamp(300px, 40vw, 400px);
+
   }
 
+
 }
 
 
 /* =========================================================
+
    ANIMATED BACKGROUND
+
    IMPORTANT: THIS IS OUTSIDE THE 480px MEDIA QUERY
+
    ========================================================= */
+
 
 #bg-stage {
+
   position: fixed;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   z-index: 0;
+
   overflow: hidden;
+
   pointer-events: none;
-  background: #121212;
+
+  background: #141013;
+
 }
+
 
 .bg-scene {
+
   position: absolute;
+
   inset: 0;
+
   width: 100%;
+
   height: 100%;
+
   opacity: 0;
+
   pointer-events: none;
+
   will-change: opacity;
+
 }
+
 
 .bg-img {
+
   position: absolute;
+
   inset: -4%;
+
   width: 108%;
+
   height: 108%;
+
   background-size: cover;
+
   background-position: center;
+
   background-repeat: no-repeat;
+
   transform-origin: center;
+
   will-change: transform;
+
 }
+
 
 .bg-overlay {
+
   position: absolute;
+
   inset: 0;
 
+
   /* Reduced slightly so scenery remains visible */
+
   --dim: 0.48;
 
+
   background:
+
     radial-gradient(
+
       60% 50% at 12% 18%,
-      rgba(120, 60, 255, 0.28),
+
+      rgba(217, 107, 67, 0.24),
+
       transparent 70%
+
     ),
+
     radial-gradient(
+
       55% 45% at 88% 85%,
-      rgba(0, 229, 255, 0.18),
+
+      rgba(240, 163, 92, 0.16),
+
       transparent 70%
+
     ),
+
     linear-gradient(
+
       180deg,
-      rgba(10, 6, 24, var(--dim)) 0%,
-      rgba(10, 6, 24, calc(var(--dim) - 0.1)) 50%,
-      rgba(10, 6, 24, calc(var(--dim) + 0.14)) 100%
+
+      rgba(20, 16, 19, var(--dim)) 0%,
+
+      rgba(20, 16, 19, calc(var(--dim) - 0.1)) 50%,
+
+      rgba(20, 16, 19, calc(var(--dim) + 0.14)) 100%
+
     );
+
 }
 
 
 /* =========================================================
+
    YOUR BACKGROUND IMAGES
+
    ========================================================= */
+
 
 .bg-home.bg-img {
+
   background-image: url('assets/gsap1.jpg');
+
 }
+
 
 .bg-about.bg-img {
+
   background-image: url('assets/gsap2.jpg');
+
 }
+
 
 .bg-skills.bg-img {
+
   background-image: url('assets/gsap3.jpg');
+
 }
+
 
 .bg-projects.bg-img {
+
   background-image: url('assets/gsap4.jpg');
+
 }
+
 
 .bg-contact.bg-img {
+
   background-image: url('assets/gsap5.jpg');
+
 }
 
 
 /* =========================================================
+
    CONTENT ABOVE BACKGROUND
+
    ========================================================= */
+
 
 section,
-footer {
-  position: relative;
-  z-index: 1;
-}
 
 footer {
-  background-color: rgba(0, 0, 70, 0.65);
+
+  position: relative;
+
+  z-index: 1;
+
+}
+
+
+footer {
+
+  background-color: rgba(48, 32, 28, 0.78);
+
 }
 
 
 /* =========================================================
+
    SCENE PROGRESS
+
    ========================================================= */
+
 
 #scene-progress {
+
   position: fixed;
+
   left: 0;
+
   bottom: 0;
+
   width: 100%;
+
   height: 3px;
+
   z-index: 999;
+
   opacity: 0;
+
   transform: scaleX(0);
+
   transform-origin: left center;
+
   pointer-events: none;
+
   background: linear-gradient(
+
     90deg,
-    #7b3cff,
-    #ff5ef7,
-    #02f5ff
+
+    #D96B43,
+
+    #F0A35C,
+
+    #F0A35C
+
   );
-  box-shadow: 0 0 14px rgba(2, 245, 255, 0.7);
+
+  box-shadow: 0 0 14px rgba(240, 163, 92, 0.55);
+
 }
 
 
 /* =========================================================
+
    NAVBAR FIX
+
    ========================================================= */
+
 
 @media (max-width: 1024px) {
 
+
   .nav-links {
+
     display: flex;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     gap: 8px;
+
     position: static;
+
     width: auto;
+
     padding: 0;
+
     background: transparent;
+
     box-shadow: none;
+
   }
 
+
   .nav-links button {
+
     min-width: 76px;
+
     height: 36px;
+
     font-size: 14px;
+
   }
+
 }
 
 
 /* =========================================================
+
    TRANSPARENT CONTENT BOXES
+
    IMPORTANT:
+
    This section is OUTSIDE the reduced-motion media query.
+
    Therefore it works for every user.
+
    ========================================================= */
 
+
 /* About content */
+
 #about .box1,
-#about #box2 {
-  background-color: rgba(20, 20, 20, 0.22);
-}
 
 #about #box2 {
+
+  background-color: rgba(48, 32, 28, 0.24);
+
+}
+
+
+#about #box2 {
+
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
+
 }
 
 
 /* Skills container */
+
 #skills .box3 {
+
   background-color: transparent;
+
 }
 
+
 .skill-item {
-  background-color: rgba(20, 20, 20, 0.20);
+
+  background-color: rgba(48, 32, 28, 0.22);
+
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
+
 }
 
 
 /* Project container */
+
 #projects .box13 {
+
   background-color: transparent;
+
 }
 
+
 .project-card {
-  background-color: rgba(18, 21, 21, 0.20);
+
+  background-color: rgba(48, 32, 28, 0.22);
+
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
+
 }
 
 
 /* Contact container */
+
 #contact .box17 {
+
   background-color: transparent;
+
 }
+
 
 #contact #box18 {
-  background-color: rgba(26, 26, 26, 0.22);
+
+  background-color: rgba(48, 32, 28, 0.24);
+
   backdrop-filter: blur(2px);
+
   -webkit-backdrop-filter: blur(2px);
+
 }
 
 
 /* =========================================================
+
    TEXT READABILITY
+
    ========================================================= */
+
 
 #about #box2 p,
+
 .project-card h2,
+
 .project-card h4,
+
 .project-card p,
+
 #contact #box18 h2,
+
 #contact #box18 h4,
+
 #contact #box18 p {
+
   position: relative;
+
   z-index: 2;
+
 }
 
 
 /* =========================================================
+
    HOME CONTENT
+
    ========================================================= */
+
 
 #home,
+
 #home .box,
+
 #intro-text {
+
   position: relative;
+
   z-index: 2;
+
 }
 
 
 /* =========================================================
+
    FOOTER
+
    ========================================================= */
+
 
 footer {
-  background-color: rgba(0, 0, 70, 0.65);
+
+  background-color: rgba(48, 32, 28, 0.78);
+
   backdrop-filter: blur(5px);
+
   -webkit-backdrop-filter: blur(5px);
+
 }
 
 
 /* =========================================================
+
    REDUCED MOTION
+
    ========================================================= */
+
 
 @media (prefers-reduced-motion: reduce) {
 
+
   .bg-img {
+
     transition: none;
+
   }
+
 
 }
 
 
 /* =========================================================
+
    FINAL BACKGROUND VISIBILITY
+
    ========================================================= */
 
+
 /* Keep the background scenery visible behind the content */
+
 #bg-stage {
+
   z-index: 0;
+
 }
+
 
 .bg-scene {
+
   z-index: 0;
+
 }
+
 
 section,
+
 footer {
+
   z-index: 1;
+
 }
 
+
 /* Content stays above the background */
+
 #about .box1,
+
 #skills .box3,
+
 #projects .box13,
+
 #contact .box17,
+
+#about #box2,
+
+.skill-item,
+
+.project-card,
+
+#contact #box18 {
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+/* =========================================================
+   SUNSET NOIR PALETTE OVERRIDES
+   Colors only: preserve existing layout and sizing.
+   Buttons intentionally have no hover effects.
+   ========================================================= */
+
+:root {
+  --sn-bg: #141013;
+  --sn-surface: #30201C;
+  --sn-primary: #D96B43;
+  --sn-accent: #F0A35C;
+  --sn-highlight: #F5D1A0;
+  --sn-text: #F7F0EC;
+  --sn-muted: #BDB0B0;
+}
+
+body,
+#bg-stage {
+  background-color: var(--sn-bg);
+  color: var(--sn-text);
+}
+
+header {
+  background-color: rgba(20, 16, 19, 0.78);
+}
+
+button {
+  background: var(--sn-surface);
+  color: var(--sn-text);
+  transition: none;
+}
+
+button::after {
+  background-image: linear-gradient(135deg, var(--sn-primary), var(--sn-accent));
+  opacity: 0.72;
+}
+
+/* Keep button appearance steady: no hover styling or movement. */
+button:hover,
+button:focus {
+  background: var(--sn-surface);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  transform: none;
+  box-shadow: 0 4px 12px rgba(217, 107, 67, 0.22);
+}
+
+.shadow__btn:hover,
+.shadow__btn1:hover,
+.shadow__btn2:hover {
+  background: #D96B43;
+  transform: none;
+  box-shadow: 0 3px 12px rgba(217, 107, 67, 0.22);
+}
+
+/* Warm Sunset Noir accents */
+.gradient-text {
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  box-shadow: 0 4px 12px rgba(217, 107, 67, 0.22);
+  transition: none;
+}
+
+.shadow__btn,
+.shadow__btn1,
+.shadow__btn2 {
+  background: #D96B43;
+  box-shadow: 0 3px 12px rgba(217, 107, 67, 0.22);
+  transition: none;
+}
+
 #about #box2,
 .skill-item,
 .project-card,
 #contact #box18 {
+  border-color: rgba(217, 107, 67, 0.65);
+  box-shadow: 0 4px 14px rgba(217, 107, 67, 0.12);
+}
+
+#about #box2:hover,
+.skill-item:hover,
+.project-card:hover {
+  transform: none;
+  box-shadow: 0 5px 16px rgba(217, 107, 67, 0.18);
+}
+
+.project-card {
+  border-image: linear-gradient(135deg, #D96B43, #F0A35C) 1;
+}
+
+.project-card h2,
+.project-card a,
+#contact #box18 p {
+  color: #F0A35C;
+}
+
+#contact #box18 {
+  border-image: linear-gradient(135deg, #D96B43, #F0A35C) 1;
+  box-shadow: 0 4px 14px rgba(217, 107, 67, 0.16);
+}
+
+.glow-btn {
+  box-shadow: 0 0 12px rgba(217, 107, 67, 0.35);
+  animation: none;
+  transition: none;
+}
+
+.glow-btn:hover {
+  transform: none;
+  box-shadow: 0 0 12px rgba(217, 107, 67, 0.35);
+}
+
+@keyframes pulse {
+  0%, 50%, 100% {
+    box-shadow: 0 0 12px rgba(217, 107, 67, 0.35);
+  }
+}
+
+footer {
+  background-color: rgba(48, 32, 28, 0.78);
+}
+
+#scene-progress {
+  background: linear-gradient(90deg, #D96B43, #F0A35C, #F5D1A0);
+  box-shadow: 0 0 10px rgba(240, 163, 92, 0.4);
+}
+
+/* =========================================================
+   FINAL SUNSET NOIR CLEANUP
+   - No button glow or button hover effects
+   - No shadows anywhere
+   - Navbar aligned to the right on desktop
+   - Keep the existing layout and responsive behavior otherwise
+   ========================================================= */
+
+:root {
+  --sn-bg: #141013;
+  --sn-surface: #30201C;
+  --sn-primary: #D96B43;
+  --sn-accent: #F0A35C;
+  --sn-highlight: #F5D1A0;
+  --sn-text: #F7F0EC;
+  --sn-muted: #BDB0B0;
+}
+
+body,
+#bg-stage {
+  background-color: var(--sn-bg);
+  color: var(--sn-text);
+}
+
+/* Remove every shadow, including text shadows and decorative glows. */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Remove the blurred glow layer behind buttons. */
+button::after {
+  display: none !important;
+  content: none !important;
+}
+
+button,
+.download-btn,
+.shadow__btn,
+.shadow__btn1,
+.shadow__btn2,
+.glow-btn {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  transition: none !important;
+  filter: none !important;
+}
+
+/* Buttons keep their normal appearance: no hover/active animation or glow. */
+button:hover,
+button:active,
+button:focus,
+button:focus-visible,
+.download-btn:hover,
+.download-btn:active,
+.shadow__btn:hover,
+.shadow__btn:active,
+.shadow__btn1:hover,
+.shadow__btn1:active,
+.shadow__btn2:hover,
+.shadow__btn2:active,
+.glow-btn:hover,
+.glow-btn:active {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+button:hover,
+button:active {
+  background: var(--sn-surface);
+}
+
+.download-btn,
+.download-btn:hover,
+.download-btn:active {
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  color: #FFFFFF;
+}
+
+.shadow__btn,
+.shadow__btn:hover,
+.shadow__btn:active,
+.shadow__btn1,
+.shadow__btn1:hover,
+.shadow__btn1:active,
+.shadow__btn2,
+.shadow__btn2:hover,
+.shadow__btn2:active {
+  background: #D96B43;
+  color: #FFFFFF;
+}
+
+.glow-btn,
+.glow-btn:hover,
+.glow-btn:active {
+  background: #D96B43;
+  color: #FFFFFF;
+  animation: none !important;
+}
+
+/* Sunset Noir text and accent colors. */
+.gradient-text {
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#intro-text h4,
+#intro-text p {
+  color: #F7F0EC;
+}
+
+.project-card h2,
+.project-card a,
+#contact #box18 p {
+  color: #F0A35C;
+}
+
+/* Warm borders and dark warm surfaces, without shadows. */
+#about #box2,
+.skill-item,
+.project-card,
+#contact #box18 {
+  border-color: rgba(217, 107, 67, 0.75);
+  box-shadow: none !important;
+}
+
+#about #box2,
+.skill-item,
+.project-card,
+#contact #box18 {
+  background-color: rgba(48, 32, 28, 0.24);
+}
+
+.project-card {
+  border-image: linear-gradient(135deg, #D96B43, #F0A35C) 1;
+}
+
+#contact #box18 {
+  border-image: linear-gradient(135deg, #D96B43, #F0A35C) 1;
+}
+
+footer {
+  background-color: rgba(48, 32, 28, 0.92);
+}
+
+#scene-progress {
+  background: linear-gradient(90deg, #D96B43, #F0A35C, #F5D1A0);
+  box-shadow: none !important;
+}
+
+.bg-overlay {
+  background:
+    radial-gradient(60% 50% at 12% 18%, rgba(217, 107, 67, 0.16), transparent 70%),
+    radial-gradient(55% 45% at 88% 85%, rgba(240, 163, 92, 0.10), transparent 70%),
+    linear-gradient(
+      180deg,
+      rgba(20, 16, 19, var(--dim)) 0%,
+      rgba(20, 16, 19, calc(var(--dim) - 0.1)) 50%,
+      rgba(20, 16, 19, calc(var(--dim) + 0.14)) 100%
+    );
+}
+
+/* Align the navigation buttons to the right instead of the center. */
+@media (min-width: 600px) {
+  header {
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center;
+  }
+
+  .navbar-buttons,
+  .nav-links {
+    justify-content: flex-end !important;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 1025px) {
+  .nav-links,
+  .navbar-buttons {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+/* ===== SUNSET NOIR THEME & FINAL OVERRIDES ===== */
+
+:root {
+  --bg: #141013;
+  --surface: #30201C;
+  --primary: #D96B43;
+  --accent: #F0A35C;
+  --highlight: #F5D1A0;
+  --text: #F7F0EC;
+  --muted: #BDB0B0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Remove shadows and glowing effects everywhere */
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Keep buttons static: no glow, zoom, or hover animation */
+button,
+button:hover,
+button:active,
+button:focus,
+.download-btn,
+.download-btn:hover,
+.shadow__btn,
+.shadow__btn:hover,
+.shadow__btn1,
+.shadow__btn1:hover,
+.shadow__btn2,
+.shadow__btn2:hover,
+.glow-btn,
+.glow-btn:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+button::after,
+button::before {
+  box-shadow: none !important;
+}
+
+button::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Navbar aligned to the right */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+}
+
+header nav button {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== ABOUT SECTION ===== */
+
+#about #box2 {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  transition: transform 0.25s ease;
+}
+
+#about #box2:hover {
+  transform: scale(1.02);
+}
+
+/* ===== SKILLS SECTION ===== */
+
+.skill-item {
+  background-color: var(--surface);
+  color: var(--text);
+  border-radius: 20px;
+  transition: transform 0.25s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.03);
+}
+
+.skill-item .slidecontainer img {
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.skill-item:hover .slidecontainer img {
+  transform: scale(1.04);
+  opacity: 0.82;
+}
+
+/* ===== PROJECTS SECTION ===== */
+
+.project-card {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  transition: transform 0.25s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+/* Project links should not glow or move */
+.project-card a,
+.project-card a:hover {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+.project-card a:hover {
+  color: var(--highlight);
+  text-decoration: none;
+}
+
+/* ===== CONTACT SECTION ===== */
+
+#contact #box18 {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  transition: transform 0.25s ease;
+}
+
+#contact #box18:hover {
+  transform: scale(1.02);
+}
+
+/* ===== GENERAL COLORS ===== */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--highlight);
+}
+
+p {
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+}
+
+footer .social-links a:hover {
+  color: var(--highlight);
+  text-decoration: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  #about #box2,
+  .skill-item,
+  .project-card,
+  #contact #box18,
+  .slidecontainer img {
+    transition: none !important;
+  }
+
+  #about #box2:hover,
+  .skill-item:hover,
+  .project-card:hover,
+  #contact #box18:hover,
+  .skill-item:hover .slidecontainer img {
+    transform: none !important;
+  }
+}
+/* =========================================================
+   HOME: GHIBLI PORTRAIT + RED-ORANGE BACKGROUND
+   ========================================================= */
+
+#home {
+  background:
+    radial-gradient(ellipse 45% 60% at 28% 55%, rgba(255, 120, 30, 0.55), transparent 70%),
+    linear-gradient(135deg, #6e1015 0%, #a81c1c 32%, #e0371a 68%, #ff6a1f 100%);
+  padding: 90px 40px 40px;
+}
+
+#home .box {
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+#intro-text {
+  width: 100%;
+  max-width: 560px;
+  justify-self: start;
+  text-align: left;
+}
+
+/* Contrast fixes on the red background */
+#home .gradient-text {
+  background: linear-gradient(135deg, #FFE3B8, #F5D1A0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#home .download-btn,
+#home .download-btn:hover,
+#home .download-btn:active {
+  background: #141013 !important;
+  color: #F7F0EC !important;
+}
+
+/* ---------- Portrait ---------- */
+.home-portrait {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.stage {
   position: relative;
-  z-index: 2;
+  height: min(86vh, 980px);
+  aspect-ratio: 2 / 3;
+  max-width: 100%;
+
+  /* feather edges so the image melts into the section background */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%),
+    linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%),
+    linear-gradient(to bottom, #000 0, #000 86%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.gl {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.gl .in {
+  position: absolute;
+  inset: 0;
+  background: url('assets/Cinematic Sunset Anime Portrait.png') center / 100% 100% no-repeat;
+}
+
+/* Hair behind head */
+.gl-hair {
+  transform-origin: 50% 30%;
+  -webkit-mask-image:
+    radial-gradient(ellipse 24% 34% at 12% 62%, #000 45%, transparent 100%),
+    radial-gradient(ellipse 22% 32% at 88% 55%, #000 45%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 24% 34% at 12% 62%, #000 45%, transparent 100%),
+    radial-gradient(ellipse 22% 32% at 88% 55%, #000 45%, transparent 100%);
+}
+
+/* Upper body + suit */
+.gl-body {
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 42%, #000 56%);
+  mask-image: linear-gradient(to bottom, transparent 42%, #000 56%);
+}
+
+/* Head + face: pivots around the neck */
+.gl-head {
+  transform-origin: 48% 46%;
+  -webkit-mask-image: radial-gradient(ellipse 44% 27% at 50% 28%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 44% 27% at 50% 28%, #000 62%, transparent 100%);
+}
+
+/* Front hair strands */
+.gl-strands {
+  transform-origin: 48% 30%;
+  -webkit-mask-image:
+    radial-gradient(ellipse 12% 20% at 30% 40%, #000 40%, transparent 100%),
+    radial-gradient(ellipse 12% 20% at 70% 40%, #000 40%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 12% 20% at 30% 40%, #000 40%, transparent 100%),
+    radial-gradient(ellipse 12% 20% at 70% 40%, #000 40%, transparent 100%);
+}
+
+/* Ambient orange rim-light glow */
+.gl-glow {
+  background:
+    radial-gradient(circle at 82% 58%, rgba(255, 160, 50, 0.45), transparent 50%),
+    radial-gradient(circle at 15% 70%, rgba(255, 110, 40, 0.25), transparent 45%);
+  mix-blend-mode: screen;
+}
+
+/* ---------- Responsive (overrides your earlier tablet/mobile rules) ---------- */
+@media (max-width: 1024px) {
+  #home { padding: 90px 15px 40px; }
+
+  #home .box {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .home-portrait {
+    order: -1;
+    justify-content: center;
+  }
+
+  .stage {
+    height: auto;
+    width: min(92%, 460px);
+  }
+
+  #intro-text {
+    text-align: center;
+    justify-self: center;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .gl, .gl .in { transform: none !important; animation: none !important; }
+}
+
+/* =========================================================
+   ABOUT: FRAMED PHOTO (left) + RESIZING TEXT BOX
+   ========================================================= */
+
+.about-wrap {
+  --fw: clamp(240px, min(30vw, 46vh), 420px);   /* frame width */
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Column that grows from 0 → frame width (animated by GSAP) */
+.about-portrait {
+  flex: 0 0 var(--fw);
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Text box takes the remaining space, so it resizes automatically */
+#about .about-wrap .box1 {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  max-width: none;
+  padding: 0;
+}
+
+#about .about-wrap .about-heading {
+  margin-left: 0;
+}
+
+/* ---------- Photo frame (no shadows, to match your theme) ---------- */
+.photo-frame {
+  width: var(--fw);
+  flex: none;
+  margin: 0;
+  transform-origin: 50% 0%;          /* swings from the top like a hung picture */
+}
+
+/* Copper / gold metallic frame */
+.frame-outer {
+  padding: 14px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #F5D1A0 0%, #D96B43 35%, #7a2f1a 65%, #F0A35C 100%);
+  border: 1px solid rgba(245, 209, 160, 0.6);
+}
+
+/* Cream mat board */
+.frame-mat {
+  padding: 12px;
+  background: #F7F0EC;
+  border: 2px solid #5a2418;
+}
+
+.frame-mat img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 2px solid #30201C;
+}
+
+/* Name plate */
+.frame-plate {
+  margin-top: 12px;
+  padding: 9px 12px;
+  text-align: center;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #D96B43, #F0A35C);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.frame-plate span {
+  display: block;
+  margin-top: 2px;
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+}
+
+/* ---------- Mobile / tablet: stack vertically ---------- */
+@media (max-width: 900px) {
+  .about-wrap {
+    --fw: min(78vw, 340px);
+    flex-direction: column;
+  }
+
+  .about-portrait {
+    flex: 0 0 auto;
+    margin: 0 auto 24px;
+  }
+
+  #about .about-wrap .box1 {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  #about .about-wrap .about-heading {
+    margin: 0 auto 20px;
+  }
+}
+
+/* =========================================================
+   CONTACT BACKGROUND: sunset flowers
+   ========================================================= */
+
+.bg-contact .bg-img {
+  background-position: center 70%;   /* keep flowers + sunset in view */
+}
+
+.bg-contact .bg-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 16, 19, 0.05) 0%,
+    rgba(20, 16, 19, 0) 50%,
+    rgba(20, 16, 19, 0.28) 100%
+  );
+}
+
+/* Optional: glass-style contact box so the photo shows through */
+#contact #box18 {
+  background-color: rgba(48, 32, 28, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Contact box: see-through glass so the background shows */
+#contact #box18 {
+  background-color: rgba(20, 16, 19, 0.38);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(240, 163, 92, 0.8);
+}
+
+/* Keep text readable on the lighter box */
+#contact #box18 h2,
+#contact #box18 h4,
+#contact #box18 span {
+  color: #FFFFFF;
+}
+
+#contact #box18 p {
+  color: #F5D1A0;
 }
