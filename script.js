@@ -5,11 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================= */
   const hasGSAP = typeof window.gsap !== 'undefined';
   const bgImages = {
-  home: 'assets/gsap1.jpg',
-  about: 'assets/gsap2.jpg',
-  skills: 'assets/gsap3.jpg',
-  projects: 'assets/gsap4.jpg',
-  contact: 'assets/gsap5.jpg'
+  
+  contact: 'assets/purple orange natural color palette sunset instagram post.png'
 };
 document.querySelectorAll('.bg-scene').forEach(scene => {
   const img = scene.querySelector('.bg-img');
@@ -66,34 +63,38 @@ document.querySelectorAll('.bg-scene').forEach(scene => {
     gsap.set(order.flatMap(targetsOf), { opacity: 0 });
     gsap.set(Object.values(bgScenes), { opacity: 0 });
 
-    const contentIn = id => {
-      const tl = gsap.timeline();
-      groups[id].forEach(g => {
-        const els = gsap.utils.toArray(g.t);
-        if (!els.length) return;
-        tl.fromTo(
-          els,
-          Object.assign({ opacity: 0 }, g.from),
-          {
-            opacity: 1, x: 0, y: 0, scale: 1,
-            duration: g.dur || 0.9,
-            ease: g.ease || 'power3.out',
-            stagger: g.stagger || 0,
-            overwrite: 'auto',
-            clearProps: 'transform,opacity' // hand control back to your CSS hover effects
-          },
-          g.at || 0
-        );
-      });
-      return tl;
-    };
+   const contentIn = id => {
+  const tl = gsap.timeline();
+  groups[id].forEach(g => {
+    const els = gsap.utils.toArray(g.t);
+    if (!els.length) return;
+    tl.fromTo(
+      els,
+      Object.assign({ opacity: 0 }, g.from),
+      {
+        opacity: 1, x: 0, y: 0, scale: 1,
+        duration: g.dur || 0.9,
+        ease: g.ease || 'power3.out',
+        stagger: g.stagger || 0,
+        overwrite: 'auto',
+        clearProps: 'transform,opacity'
+      },
+      g.at || 0
+    );
+  });
+  // NEW: framed photo drops in while the text box resizes
+  if (id === 'about' && window.aboutFrameIn) tl.add(window.aboutFrameIn(), 0.1);
+  return tl;
+};
 
-    const contentOut = id =>
-      gsap.to(targetsOf(id), {
-        opacity: 0, y: -24, duration: 0.5, ease: 'power2.in',
-        stagger: 0.03, overwrite: 'auto'
-      });
-
+const contentOut = id => {
+  // NEW: frame leaves and its column collapses
+  if (id === 'about' && window.aboutFrameOut) window.aboutFrameOut();
+  return gsap.to(targetsOf(id), {
+    opacity: 0, y: -24, duration: 0.5, ease: 'power2.in',
+    stagger: 0.03, overwrite: 'auto'
+  });
+};
     let current = null;
     let busy = false;
     let pending = null;
