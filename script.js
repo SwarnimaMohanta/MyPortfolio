@@ -42,10 +42,12 @@ document.querySelectorAll('.bg-scene').forEach(scene => {
         { t: '#about .about-heading', from: { x: -60 } },
         { t: '#about #box2', from: { y: 50 }, at: 0.15, dur: 1 }
       ],
-      skills: [
-        { t: '#skills .skills-heading', from: { x: -60 } },
-        { t: '#skills .skill-item', from: { scale: 0.85, y: 30 }, stagger: 0.07, at: 0.1 }
-      ],
+     skills: [
+  { t: '#skills .sk-title', from: { x: -60 } },
+  { t: '#skills .sk-desc',  from: { y: 30 }, at: 0.15 },
+  { t: '#skills .sk-item',  from: { y: 70, scale: 0.8 },
+    stagger: { each: 0.08, grid: [3, 3], from: 'start' }, at: 0.1, ease: 'back.out(1.4)' }
+],
       projects: [
         { t: '#projects .projects-heading', from: { x: -60 } },
         { t: '#projects .project-card', from: { y: i => (i % 2 ? 70 : 40), scale: 0.95 }, stagger: 0.12, at: 0.1 }
@@ -63,7 +65,7 @@ document.querySelectorAll('.bg-scene').forEach(scene => {
     gsap.set(order.flatMap(targetsOf), { opacity: 0 });
     gsap.set(Object.values(bgScenes), { opacity: 0 });
 
-   const contentIn = id => {
+  const contentIn = id => {
   const tl = gsap.timeline();
   groups[id].forEach(g => {
     const els = gsap.utils.toArray(g.t);
@@ -82,14 +84,14 @@ document.querySelectorAll('.bg-scene').forEach(scene => {
       g.at || 0
     );
   });
-  // NEW: framed photo drops in while the text box resizes
-  if (id === 'about' && window.aboutFrameIn) tl.add(window.aboutFrameIn(), 0.1);
+  if (id === 'about'  && window.aboutFrameIn) tl.add(window.aboutFrameIn(), 0.1);
+  if (id === 'skills' && window.skillsIn)     tl.add(window.skillsIn(), 0.1);
   return tl;
 };
 
 const contentOut = id => {
-  // NEW: frame leaves and its column collapses
-  if (id === 'about' && window.aboutFrameOut) window.aboutFrameOut();
+  if (id === 'about'  && window.aboutFrameOut) window.aboutFrameOut();
+  if (id === 'skills' && window.skillsOut)     window.skillsOut();
   return gsap.to(targetsOf(id), {
     opacity: 0, y: -24, duration: 0.5, ease: 'power2.in',
     stagger: 0.03, overwrite: 'auto'
