@@ -3067,3 +3067,230 @@ footer .social-links a:hover {
 #contact #box18 p {
   color: #F5D1A0;
 }
+
+/* =========================================================
+   SKILLS: dark glass tiles design
+   ========================================================= */
+
+#skills {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 40px 60px;
+  background:
+    radial-gradient(ellipse 50% 60% at 78% 50%, rgba(217, 107, 67, 0.14), transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 90%, rgba(240, 163, 92, 0.10), transparent 70%),
+    #161013;
+}
+
+/* faint grid behind the tiles */
+#skills::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 14%;
+  width: 58%;
+  height: 72%;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(240, 163, 92, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 163, 92, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+/* ---------- decorations ---------- */
+.sk-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(46vw, 640px);
+  pointer-events: none;
+}
+.sk-lines path {
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.sk-arcs {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(30vw, 360px);
+  pointer-events: none;
+}
+
+.sk-dot {
+  position: absolute;
+  width: var(--s, 10px);
+  height: var(--s, 10px);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #F7B33C 0%, rgba(240, 130, 50, 0.6) 40%, transparent 70%);
+}
+
+.sk-orb {
+  position: absolute;
+  left: 26%;
+  bottom: -130px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(240, 163, 92, 0.55), rgba(217, 107, 67, 0.15) 60%, transparent 72%);
+}
+
+/* ---------- layout ---------- */
+.sk-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+
+.sk-title {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 28px;
+  background: linear-gradient(90deg, #E0603A, #F7B33C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+#skills .sk-desc {
+  max-width: 460px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #E8B98A;
+}
+
+/* ---------- tiles ---------- */
+.sk-grid {
+  --tile: clamp(110px, min(15vw, 20vh), 230px);
+  display: grid;
+  grid-template-columns: repeat(3, var(--tile));
+  gap: 26px 28px;
+  justify-content: center;
+}
+
+.sk-item { text-align: center; }
+
+.sk-card {
+  position: relative;
+  width: var(--tile);
+  height: var(--tile);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 14%;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 3px solid rgba(240, 163, 92, 0.55);
+  background: linear-gradient(160deg, rgba(95, 82, 88, 0.55), rgba(28, 20, 24, 0.92) 70%);
+  /* theme has no box-shadows, so the glow uses drop-shadow */
+  filter: drop-shadow(0 0 8px rgba(255, 110, 40, 0.25));
+  transition: border-color 0.3s ease, filter 0.3s ease;
+  will-change: transform;
+}
+
+/* checkerboard of "hot" tiles like the design */
+.sk-item:nth-child(odd) .sk-card {
+  border-color: #F26A2E;
+  filter: drop-shadow(0 0 14px rgba(255, 100, 40, 0.6));
+}
+
+.sk-card.is-hover {
+  border-color: #FFB35C;
+  filter: drop-shadow(0 0 20px rgba(255, 130, 50, 0.85));
+}
+
+/* diagonal light streak */
+.sk-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 58%, rgba(255, 255, 255, 0.10) 58%, rgba(255, 255, 255, 0.03) 76%, transparent 76%);
+}
+
+.sk-logo {
+  width: 58%;
+  height: 58%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sk-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* progress bar */
+.sk-bar {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 9%;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.sk-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #E0603A, #F7B33C);
+}
+
+/* sweep created by JS */
+.sk-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  transform: translateX(-150%) skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+}
+
+.sk-name {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #F0D6BE;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  #skills { padding: 100px 15px 40px; }
+
+  .sk-wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  #skills .sk-desc { margin: 0 auto; }
+
+  .sk-grid {
+    --tile: clamp(90px, 26vw, 150px);
+    gap: 18px 14px;
+  }
+
+  .sk-card { border-radius: 20px; border-width: 2px; }
+  .sk-name { font-size: 0.8rem; }
+}
